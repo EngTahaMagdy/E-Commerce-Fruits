@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light float-xl-right ">
+    <div class="container-fluid">
+      <a class="navbar-brand logo" routerLink="home">
+
+        <img src='./assets/logo11.png'  height="34px" width="130px" >
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse float-xl-right" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item mx-3">
+            <a class="nav-link " aria-current="page" routerLink="home" routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}">Home</a>
+          </li>
+  
+          <li class="nav-item mx-3" *ngIf='isUser'>
+            <a class="nav-link" routerLink='cart' routerLinkActive='active' > Card<i class='mx-1 fa fa-shopping-cart'></i> </a>
+          </li>
+  
+          <li class="nav-item mx-3" *ngIf='isUser'>
+            <a class="nav-link" routerLink="goods" routerLinkActive='active'>Dashboard</a>
+          </li>
+  
+          <li class="nav-item mx-3" *ngIf='!isUser'>
+            <a class="nav-link" routerLink="login" routerLinkActive='active'>Login</a>
+          </li>
+  
+          <li class="nav-item mx-3" *ngIf='!isUser'>
+            <a class="nav-link" routerLink="signup" routerLinkActive='active'>Sign up</a>
+          </li>
+  
+  
+  
+  
+  
+  
+          <li class="logout-right" *ngIf='isUser'>
+            
+              
+              <button class="btn btn-danger"(click)='logout()'>Logout<i class=" mx-1 fa fa-sign-out"></i></button>
+              
+              
+              <div class='icon '>
+
+                <a href='www.twitter.com' class=" third-icon fa   fa-twitter"></a>
+                <a href='www.linkedin.com' class=" third-icon fa fa-linkedin"></a>
+                <a href='www.gmail.com' class=" third-icon fa  fa-google"></a>
+               
+                </div>
+
+
+
+          </li>
+        </ul>
+      
+      </div>
+    </div>
+  </nav>

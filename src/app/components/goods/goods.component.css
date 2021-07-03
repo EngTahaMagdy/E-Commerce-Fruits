@@ -1,0 +1,22 @@
+@media (max-width:1100px)
+{
+    table{
+        width: 70% !important;
+        
+    }
+}
+@media (max-width:900px){
+    table{
+        width:90% !important;
+        margin:auto;
+        
+    }
+}
+
+@media (max-width:700px){
+    table{
+        width:99% !important;
+        margin:auto;
+        
+    }
+}

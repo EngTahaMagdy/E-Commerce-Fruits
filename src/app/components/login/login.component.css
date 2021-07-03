@@ -1,0 +1,15 @@
+*
+{
+    transition: all .4 ease-in-out;
+}
+input
+{
+    caret-color:red;
+    
+    border:1px solid #09c;
+}
+input:focus
+{
+    border:1px solid  rgb(255, 128, 128);
+    box-shadow: none  !important;
+}

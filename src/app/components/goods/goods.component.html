@@ -1,0 +1,118 @@
+<div class="container my-5 w-50 mx-auto">
+    <h1 class="text-center my-3">Add New Good</h1>
+    <form #f='ngForm' (ngSubmit)='addNewGood(f)'>
+
+    <div class="form-group my-3 ">
+        <input ngModel type="text" name='name' class="form-control" placeholder=" Enter Your Name" required >
+    </div>
+
+    <div class="form-group mb-3">
+        <input ngModel type="number"  name="price" class="form-control" placeholder=" Enter Your Price" required >
+    </div>
+    <div class="form-group mb-3">
+        <input #image ngModel type="file" name='file' class="form-control" required  >
+    </div>
+
+
+
+    
+
+    <button class="btn1 btn btn-primary"  [disabled]='f.invalid' data-bs-toggle="modal" data-bs-target="#exampleModal"  type="submit" >Add</button>
+    </form>
+
+</div>
+
+<h1 class="text-center my-3">Edit Goods</h1>
+
+
+
+<div  class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-center" id="exampleModalLabel">Add New Good</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+          <p>
+            <i class='fa fa-check'></i>
+          Add New Good Succesfully
+        </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)='goHome()'>Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<table class="table-info table table-responsive w-50 mx-auto ">
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>Good  </th>
+      <th>Price </th>
+      <th >Image</th>
+      <th>Options</th>
+      
+    </tr>
+  </thead>
+
+  <tbody *ngFor="let good of goodsItem; index as i">
+    <tr>
+      <th scope="row">{{i+1}}</th>
+      <td>{{good.name| titlecase}}</td>
+      <td>
+        <input type='number' [(ngModel)]='good.price'>
+        </td>
+      
+      <td >
+        <img [src]='good.photoUrl' width='100px' height='100px'>
+      </td>
+      <td>
+          <button [disabled]='disableBtn' class="btn btn-primary mx-1"data-bs-toggle="modal" data-bs-target="#exampleModal1" (click)='save(i)'><i class='fa fa-check'></i></button>
+          <button [disabled]='disableBtn' class="btn btn-danger" (click)='delete(i)'><i class='fa fa-trash-o'></i></button>
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- Button trigger modal
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+ -->
+
+
+<div  class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    
+    <div class='alert alert-success' >
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <p class='my-2 text-center'> <i class='fa fa-check'></i>
+      Edit Good Succesfully </p>
+    </div>
+    <!--
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <p>
+          <i class='fa fa-check'></i>
+        Edit Good Succesfully
+      </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" >Ok </button>
+      </div>
+    </div>
+  -->
+
+  </div>
+</div>

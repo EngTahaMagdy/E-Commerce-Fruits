@@ -1,0 +1,60 @@
+
+.logo span{
+    color:#ff3838;
+    font-weight: 700;
+}
+.active
+{
+    color:#ff3838 !important;
+    border-bottom: 2px solid #ff3838;
+    font-weight: 700;
+}
+.navbar{
+    padding-bottom:0!important;
+}
+.hiddin
+{
+    display: none;
+}
+
+
+
+.logout-right .icon
+{
+    margin: 0px 30px;
+}
+.logout-right .icon a
+{
+    margin-left: 5px;
+    padding:  9px;
+    background-color: transparent;
+    color:#333;
+    transition: all .2s linear;
+    font-size: 21px;
+    text-decoration: none;
+}
+.logout-right .icon a:hover{
+    color: #ff3838;
+}
+
+@media (min-width:992px) {
+    .logout-right 
+{
+    position: absolute;
+    right:1% /*13%*/;
+    
+}
+.icon
+{
+    float:right;
+    display: block;
+
+}
+
+}
+@media (max-width:991px)
+{
+    .icon{
+        display:none;
+    }
+}

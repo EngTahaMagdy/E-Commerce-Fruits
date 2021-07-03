@@ -1,0 +1,14 @@
+{
+    "steps": [
+     {
+        "name": "gcr.io/market-e5fe1/firebase",
+        "args": [
+           "deploy",
+           "--project",
+           "market-e5fe1",
+           "--only",
+           "hosting"
+         ]
+    }
+    ]
+  }

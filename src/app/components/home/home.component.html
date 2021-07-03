@@ -1,0 +1,29 @@
+<div class="container my-5">
+  <p class="alert alert-danger p-2 my-3 " *ngIf='!isUser'>You Should Login First To Can Buy Products. </p>
+    <div class="row">
+      <div class='form-group has-search'>
+        <span class='fa fa-search'></span>
+        <input class='form-control my-3 ' placeholder="search" [(ngModel)]='searchItem'>
+
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6 my-3" *ngFor='let good of goods|search:searchItem ;index as i'>
+  
+        <div class="card">
+          <img [src]="good.photoUrl"  height="200" class="card-img-top " >
+          <div class="card-body">
+            <h3 class="float-start">{{good.name |titlecase}}</h3>
+            <p class="h5 card-text float-end price">{{good.price |currency}}</p>
+            <div class="clearfix"></div>
+            <button class="btn1 btn  w-100 my-2" (click)='addToCart(i)' [disabled]='!isUser' [class.btnNotUser]='!isUser' *ngIf='index!==i'>Add To Cart</button>
+            
+            <div *ngIf='index==i && isUser' class='my-3'>
+              <input type="number" class="form-control mt-2" min='1' placeholder='Amount (KG)' #amount>
+              <button [disabled]='buyBtn' class="btn1 btn  mt-2"(click)='buy(amount.value)'>Buy</button>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  
+  </div>

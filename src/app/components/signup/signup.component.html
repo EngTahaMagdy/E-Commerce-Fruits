@@ -1,0 +1,35 @@
+<div class="container my-3 mx-auto w-50">
+    
+    <form #f='ngForm' (ngSubmit)='signup(f)' class='w-75 mx-auto my-5'>
+    <div class="form-group mb-3">
+    <input  ngModel name="name"  #name='ngModel' type="text" class="form-control" placeholder=" Enter Your Name" required>
+      <div class="alert alert-danger p-1 my-2" *ngIf='name.invalid && name.touched'>Name Is Required </div>
+    </div>
+    <div class="form-group mb-3">
+      <input  ngModel name="email" #email='ngModel' type="email" class="form-control" placeholder=" Enter Your Email" required email>
+      <div class="alert alert-danger p-1 my-2" *ngIf='email.errors?.required && email.touched'>Email Is Required </div>
+      <div class="alert alert-danger p-1 my-2" *ngIf='email.touched && email.errors?.email' >Your Input Is Not Email </div>
+    </div>
+  
+    <div class="form-group mb-3">
+      <input  ngModel name="password" #pass='ngModel' type="password" class="form-control" placeholder=" Enter Your Password" required minlength="6">
+      <div class="alert alert-danger p-1 my-2" *ngIf='pass.errors?.required && pass.touched'>password Is Required </div>
+      <div class="alert alert-danger p-1 my-2" *ngIf='pass.touched && pass.errors?.minlength' >password should contain 6+ letters </div>
+    </div>
+  
+    <div class="form-group mb-3">
+      <input   ngModel name="confirmPassword" #cpass='ngModel' type="password" class="form-control" placeholder=" Enter Your confirm Passowerd" required>
+      <div class="alert alert-danger p-1 my-2" *ngIf='cpass.invalid && cpass.touched'>password Is Required </div>
+      <div class="alert alert-danger p-1 my-2" *ngIf='pass.value!==cpass.value && cpass.touched'>Address Is Not Equal </div>
+      
+    </div>
+    <div class="form-group mb-3">
+      <input  ngModel name="address"  #address='ngModel' type="text" class="form-control" placeholder=" Enter Your Address" required>
+      <div class="alert alert-danger p-1 my-2" *ngIf='address.invalid && address.touched'>Address Is Required </div>
+    </div>
+    
+
+    
+    <button class="btn btn-primary " type="submit" [disabled]='f.invalid || pass.value!==cpass.value' >Add Acount</button>
+    </form>
+  </div>

@@ -1,0 +1,62 @@
+<div class="container   w-75 mx-auto my-5">
+    <table class="table-primary table  ">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Good Name </th>
+            <th>Price </th>
+            <th >Amount</th>
+            <th>Total</th>
+            <th>Operations</th>
+          </tr>
+        </thead>
+
+        <tbody *ngFor="let shopping of shoppingCart; index as i">
+          <tr>
+            <th scope="row">{{i+1}}</th>
+            <td>{{shopping.name| titlecase}}</td>
+            <td>{{shopping.price| currency}}</td>
+            <td class='w-25' >
+                <input type="number" width='50px' [(ngModel)]='shopping.amount' class="form-control ">
+            </td>
+            <td >{{shopping.price * shopping.amount|currency}}</td>
+            <td>
+                <button [disabled]='disableBtn' class="btn1 btn  mx-2"(click)='save(i)'><i class='fa fa-check'></i></button>
+                <button [disabled]='disableBtn' class="btn1 btn btn-danger" (click)='delete(i)'><i class='fa fa-trash-o'></i></button>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+    <button class=" btn1 btn btn-info btn-lg mr-5" (click)="totalGood()">Total </button>
+    <button (click)='order()' data-bs-toggle="modal" data-bs-target="#exampleModal" class=" btn1 btn btn-danger btn-lg ml-4">Order</button>
+    
+     <div class="alert alert-primary my-3 p-2" *ngIf='disableBtn' >Total : {{sumTotal}} </div>
+</div>
+
+<!-- Button trigger modal
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+ -->
+<!-- Modal -->
+<div  class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLabel">Oreder</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <p>
+          <i class='fa fa-check-circle'></i>
+        Hello Mr.{{USER}} 
+        Your Orders Is Send Succesfully
+      </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)='goHome()'>Ok</button>
+      </div>
+    </div>
+  </div>
+</div>

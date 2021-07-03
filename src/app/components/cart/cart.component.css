@@ -1,0 +1,46 @@
+.container .table
+{
+    border:1px solid rgba(0,0, 0, .1);
+    border-radius: 5px;
+}
+.container table i
+{
+    font-size:22px;
+}
+.container button
+{
+    margin-right: 30px !important;
+    color:#fff !important
+}
+.modal{
+    border:none !important
+}
+.modal .modal-body i
+{
+    color:rgb(46, 245, 11);
+    font-size:20px;
+
+}
+.modal .modal-body p{
+    font-size:20px;
+}
+.modal-header{
+    border:none !important
+}
+@media (max-width:920px)
+{
+    .container
+    {
+        width: 99% !important;
+        color:blue
+    }
+    .modal .modal-body i
+{
+    color:rgb(46, 245, 11);
+    font-size:18px;
+
+}
+.modal .modal-body p{
+    font-size:18px;
+}
+}
